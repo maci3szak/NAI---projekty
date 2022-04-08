@@ -1,0 +1,63 @@
+***
+Oczywiście ten projekt mogą robić tylko Ci studenci, którzy już oddali
+programik z 1 perceptronem
+*** 
+
+Specyfikacja programu "Jednowarstwowa siec neuronowa":
+
+TERMIN: tydzień (ewentualnie 2 dla spóźnialskich)
+
+Dane wejściowe (należy samemu przygotować):
+
+1. Stworzyć katalog na dane.
+
+2. W zadanym katalogu tworzymy kilka (K=3) podkatalogów
+nazwanych nazwami języków (np. czeski, słowacki ...)
+
+3. W każdym z nich umieszczamy po kilka tekstów
+trenujących ściągniętych np. z wikipedii w odpowiednich językach (w alfabetach łacińskich).
+(Z praktyki wynika, ze wystarcza nawet mniej 10 tekstów uczących dla każdego języka, ale długości chociaż ze
+2 akapity)
+
+4. W momencie uruchomienia sieć perceptronów będzie używała tych tekstów jako dane trenujące.
+
+Opis programu:
+
+Użyjemy 1-warstwowej sieci neuronowej do klasyfikowania języków
+naturalnych tekstów.
+
+Bierzemy dokument w dowolnym języku (w alfabecie łacińskim) z pliku ".txt",
+wyrzucamy wszystkie znaki poza literami alfabetu angielskiego (ascii) i
+przerabiamy na 26-elementowy wektor proporcji liter (czyli: jaka jest
+proporcja 'a', 'b', etc.)
+
+Okazuje się, ze taki wektor rozkładu znaków wystarcza do rozróżniania
+języka naturalnego dokumentu tekstowego, nawet dla tak podobnych języków
+jak np. czeski i słowacki.
+
+Tworzymy wiec 1 warstwę K perecptronów (gdzie K to liczba języków, weźmy
+ze K=3 języki) i uczymy każdego perceptrona rozpoznawania "jego" języka.
+
+Uczenie perceptronów przebiega jak w poprzednim projekcie, tzn z dyskretną (0-1) funkcją aktywacji.
+
+Mając wyuczony każdy z perceptronów, klasyfikacji do jednej z K klas 
+dokonujemy używając maximum selector (zdjac dyskretna funkcje aktywacji) 
+i normalizować zarówno wektor wag jak i wejść.
+
+UWAGA: przy normalizacji można użyć miary euklidesowej. 
+Normalizując wektor wag nie dokładamy do niego parametru progu (theta).
+
+Zapewnić okienko tekstowe do testowania: po nauczeniu wklejamy dowolny
+nowy tekst w danym języku i sprawdzamy, czy siec prawidłowo go klasyfikuje.
+
+Oczywiście w momencie pisania programu nie powinno być wiadome ile i jakie
+będą języki. 
+
+Nie można używać żadnych bibliotek ML, wszystko ma być zaimplementowane od
+zera w pętlach, ifach, odległość tez sam ma liczyć używając działań
+arytmetycznych (do operacji na liczbach można używać java.lang.Math), etc.
+Można używać java.util.
+
+
+
+
