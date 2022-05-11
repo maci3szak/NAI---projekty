@@ -57,7 +57,3 @@ Nie można używać żadnych bibliotek ML, wszystko ma być zaimplementowane od
 zera w pętlach, ifach, odległość tez sam ma liczyć używając działań
 arytmetycznych (do operacji na liczbach można używać java.lang.Math), etc.
 Można używać java.util.
-
-
-
-

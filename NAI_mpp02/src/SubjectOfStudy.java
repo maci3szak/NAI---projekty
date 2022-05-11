@@ -10,9 +10,12 @@ public class SubjectOfStudy {
     private double[] parameters;//lista parametrów
     public static Map<String, Integer> speciesMap = new HashMap<>();
 
+
+
     public SubjectOfStudy(String species, double[] parameters) {
         this.species = species;
         this.parameters = parameters;
+
     }
 
     public String getSpecies() {
@@ -35,10 +38,6 @@ public class SubjectOfStudy {
                     values[i] = Double.parseDouble(data[i].trim());
                 }
                 objectList.add(new SubjectOfStudy(data[data.length - 1], values));
-//                if (data[data.length - 1].equals("\"versicolor\"") || data[data.length - 1].equals("\"virginica\""))
-//                    speciesMap.put("versicolor/virginica", null);
-//                else
-//                    speciesMap.put(data[data.length - 1], null);
                 speciesMap.put(data[data.length - 1], null);
             }
             int i = 0;

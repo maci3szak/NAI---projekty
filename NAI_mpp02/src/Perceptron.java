@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Perceptron {
 
-    private ArrayList<SubjectOfStudy> trainingList;
+    private ArrayList<SubjectOfStudy> trainingList = SubjectOfStudy.readFile("/Users/maciejmaksymiuk/PJATKsemestrIV/NAI/NAI---projekty/NAI_mpp02/mpp2/iristrain.csv");;
     private ArrayList<SubjectOfStudy> testList;
     public double[] weights;
     private double theta; // próg theta
@@ -61,12 +61,11 @@ public class Perceptron {
                     weights[j] += alpha * localError * testList.get(i).getParameters()[j];
 
                 }
-                //globalError += (localError * localError);
+
             }
 
-            //System.out.println("Iteration: " + iteration);
+
         } while (iteration <= MAX_ITERATION);
-        //} while (globalError != 0 && iteration <= MAX_ITERATION);
     }
 
 

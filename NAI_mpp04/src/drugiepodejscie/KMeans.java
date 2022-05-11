@@ -30,15 +30,15 @@ public class KMeans {
         for (int i = 1; i <= 10; i++) {
             kMeans.initiateClusterAndCentroid();
 
-//            System.out.println("Iteration number: " + i);
-//            for (Map.Entry<Cluster, ArrayList<Record>> entry : kMeans.tempMap.entrySet()) {
-//                double sumOfTheDistances = 0;
-//                for (int j = 0; j < entry.getValue().size(); j++)
-//                    sumOfTheDistances += entry.getKey().calculateDistance(entry.getValue().get(j));
-//                    //sumOfTheDistances += Math.pow(entry.getKey().calculateDistanceWithoutSqrt(entry.getValue().get(j)), 2);
-//                    //sumOfTheDistances += entry.getKey().calculateDistanceWithoutSqrt(entry.getValue().get(j));
-//                System.out.println("Distance from the centroid nr: " + entry.getKey().getClusterNumber() + " = " + sumOfTheDistances);
-//            }
+            System.out.println("Iteration number: " + i);
+            for (Map.Entry<Cluster, ArrayList<Record>> entry : kMeans.tempMap.entrySet()) {
+                double sumOfTheDistances = 0;
+                for (int j = 0; j < entry.getValue().size(); j++)
+                    //sumOfTheDistances += entry.getKey().calculateDistance(entry.getValue().get(j));
+                    //sumOfTheDistances += Math.pow(entry.getKey().calculateDistanceWithoutSqrt(entry.getValue().get(j)), 2);
+                    sumOfTheDistances += entry.getKey().calculateDistanceWithoutSqrt(entry.getValue().get(j));
+                System.out.println("Distance from the centroid nr: " + entry.getKey().getClusterNumber() + " = " + sumOfTheDistances);
+            }
 
         }
 
@@ -107,8 +107,9 @@ public class KMeans {
     }
     //==================================================================================================================
 
-
+    int i = 1;
     private void initiateClusterAndCentroid() {
+
         Iterator<Record> iterator = data.iterator();
         Record record = null;
         tempMap = new LinkedHashMap<>();
@@ -149,6 +150,19 @@ public class KMeans {
                 }
             }
         }
+
+
+//        System.out.println("Iteration number: " + i++);
+//        for (Map.Entry<Cluster, ArrayList<Record>> entry : tempMap.entrySet()) {
+//            double sumOfTheDistances = 0;
+//            for (int j = 0; j < entry.getValue().size(); j++)
+//                sumOfTheDistances += entry.getKey().calculateDistance(entry.getValue().get(j));
+//            //sumOfTheDistances += Math.pow(entry.getKey().calculateDistanceWithoutSqrt(entry.getValue().get(j)), 2);
+//            //sumOfTheDistances += entry.getKey().calculateDistanceWithoutSqrt(entry.getValue().get(j));
+//            System.out.println("Distance from the centroid nr: " + entry.getKey().getClusterNumber() + " = " + sumOfTheDistances);
+//        }
+
+
     }
 
     public void cleanliness(LinkedHashMap<Cluster, ArrayList<Record>> centroids) {
